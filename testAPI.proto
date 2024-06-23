@@ -1,0 +1,24 @@
+syntax = "proto3";
+option go_package = "https://github.com/simonMarcotte/Litcode/tree/main/backend/testAPI";
+
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+
+}
+
+message GetDataRequest {
+    Person person = 1;
+    string someData = 2;
+}
+
+message GetDataResponse {
+    bytes pdf = 1;
+    bytes png = 2;
+}
+
+service testAPI {
+    // put endpoints here
+    rpc GetData(GetDataRequest) returns (GetDataResponse);
+}
